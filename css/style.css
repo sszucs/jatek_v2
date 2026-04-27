@@ -1,3 +1,29 @@
-/* Emberhalászat 2.2 – UI stílus
-   A 2.1-es verzió kiforrott vizuális rendszere változatlan maradt.
-*/
+*{box-sizing:border-box}body{margin:0;font-family:Nunito,sans-serif;color:#123}
+.bg{position:fixed;inset:0;background:linear-gradient(180deg,#9dd9ff,#eaf4fb);overflow:hidden;z-index:-1}
+.wave{position:absolute;left:-10%;right:-10%;height:200px;border-radius:50%;opacity:.45}
+.w1{bottom:160px;background:#7cc7f7;animation:drift 18s ease-in-out infinite}
+.w2{bottom:90px;background:#8fd0ff;animation:drift 24s ease-in-out infinite reverse}
+.w3{bottom:20px;background:#b3e4ff;animation:drift 30s ease-in-out infinite}
+@keyframes drift{0%{transform:translateX(0)}50%{transform:translateX(10%)}100%{transform:translateX(0)}}
+
+.app{max-width:1100px;margin:auto;padding:16px}
+.topbar{display:flex;justify-content:space-between;align-items:center}
+nav button{margin:0 6px;padding:10px 14px;border-radius:14px;border:1px solid #cde;background:rgba(255,255,255,.7)}
+nav button:hover{background:#fff}
+.tab{display:none}.tab.active{display:block}
+.card{background:rgba(255,255,255,.85);backdrop-filter:blur(10px);border-radius:24px;padding:18px;margin:14px 0;box-shadow:0 20px 40px rgba(0,80,160,.15)}
+.scene{display:none;animation:fade .5s ease}.scene.active{display:block}
+.eyebrow{font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:#246}
+.text{font-size:1.4rem}
+.controls{text-align:center;margin-top:12px}
+.choices button{margin:6px;padding:10px 14px;border-radius:14px}
+.good{background:#b7f5c9}.bad{background:#ffd6d6}
+.hint{color:#345;margin-top:8px}
+.fish-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px}
+.verse{background:#eef;border:2px dashed #99f;border-radius:18px;padding:14px}
+.person{background:#f7fbff;border-radius:18px;padding:18px;text-align:center}
+.dd{display:flex;gap:12px;flex-wrap:wrap}
+.dd.split{flex-wrap:nowrap}
+#left div,#order div{background:#fff;border-radius:14px;padding:12px}
+#right{min-height:80px;border:2px dashed #99b;border-radius:14px;padding:12px}
+@keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
