@@ -2,40 +2,95 @@
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Emberhalászat 2.2 – nyugodt, modern bibliai játékélmény Lukács 5:1–11 alapján." />
-  <meta name="theme-color" content="#0b7cff" />
-  <title>Emberhalászat 2.2 – Lukács 5:1–11</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lk 5 – Interaktív Élmény (2.1 UI)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <div class="bg-orb orb-a"></div>
-  <div class="bg-orb orb-b"></div>
-  <div class="bg-grid"></div>
-  <div class="app-shell">
-    <header class="topbar">
-      <div class="brand-wrap">
-        <div class="brand-icon">🎣</div>
-        <div>
-          <p class="eyebrow">2.2 · nyugodt, modern játékélmény</p>
-          <h1>Emberhalászat – Lukács 5:1–11</h1>
-        </div>
-      </div>
-      <div class="top-actions">
-        <button class="ghost-btn small" id="soundToggleBtn" type="button" aria-pressed="true">🔊 Hang: be</button>
-        <button class="ghost-btn small" id="resetProgressBtn" type="button">Haladás törlése</button>
-      </div>
-    </header>
-    <main>
-      <section class="screen active" id="screen-menu"></section>
-      <section class="screen" id="screen-fishing"></section>
-      <section class="screen" id="screen-story"></section>
-      <section class="screen" id="screen-lesson"></section>
-    </main>
+<div class="bg">
+  <div class="wave w1"></div>
+  <div class="wave w2"></div>
+  <div class="wave w3"></div>
+</div>
+
+<div class="app">
+<header class="topbar">
+  <h1>Lukács 5:1–11</h1>
+  <nav>
+    <button data-tab="story">Történet</button>
+    <button data-tab="fish">Emberhalász</button>
+    <button data-tab="learn">Feldolgozás</button>
+  </nav>
+</header>
+
+<main>
+<section id="story" class="tab active">
+  <div class="card scene active">
+    <p class="eyebrow">Lk 5:1</p>
+    <p class="text">A sokaság Jézushoz tódult, és hallgatta Isten igéjét.</p>
   </div>
-  <script src="js/script.js"></script>
+  <div class="card scene">
+    <p class="eyebrow">Lk 5:2</p>
+    <p class="text">A parton két hajó állt, a halászok hálóikat mosták.</p>
+  </div>
+  <div class="card scene">
+    <p class="eyebrow">Lk 5:4</p>
+    <p class="text">Jézus megszólította Pétert: „Evezz a mélyre.”</p>
+    <div class="choices">
+      <button class="bad">Most nincs értelme</button>
+      <button class="bad">Egész éjjel próbáltuk</button>
+      <button class="good">A te szavadra</button>
+    </div>
+    <p class="hint"></p>
+  </div>
+  <div class="card scene">
+    <p class="eyebrow">Lk 5:6–8</p>
+    <p class="text">A hálók megteltek. Péter megrendült.</p>
+  </div>
+  <div class="card scene">
+    <p class="eyebrow">Lk 5:10–11</p>
+    <p class="text">„Ne félj… mostantól embereket fogsz halászni.”</p>
+  </div>
+  <div class="controls">
+    <button id="prev">◀</button>
+    <button id="next">▶</button>
+  </div>
+</section>
+
+<section id="fish" class="tab">
+  <div class="card">
+    <p class="text">Húzd az igét ahhoz az emberhez, akit megszólít.</p>
+    <div class="fish-grid">
+      <div class="verse" draggable="true">Ne félj</div>
+      <div class="person">Félelemmel élő</div>
+      <div class="person">Kereső</div>
+    </div>
+    <p id="fishMsg" class="hint"></p>
+  </div>
+</section>
+
+<section id="learn" class="tab">
+  <div class="card">
+    <p class="text">Rendezd sorrendbe a történet ívét.</p>
+    <div id="order" class="dd"></div>
+    <p id="orderMsg" class="hint"></p>
+  </div>
+  <div class="card">
+    <p class="text">Mit hagy ott Péter?</p>
+    <div class="dd split">
+      <div id="left">
+        <div draggable="true">Biztonság</div>
+        <div draggable="true">Kontroll</div>
+        <div draggable="true">Megélhetés</div>
+      </div>
+      <div id="right">Otthagyja</div>
+    </div>
+  </div>
+</section>
+</main>
+</div>
+
+<script src="js/app.js"></script>
 </body>
 </html>
